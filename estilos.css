@@ -89,15 +89,14 @@ h1, h2 {
     z-index: 2;
 }
 
-
-.sabor-natural-60g { background-image: url("https://ibb.co"); border-color: #a8d08d; }
-.sabor-natural-120g { background-image: url("https://ibb.co"); border-color: #a8d08d; }
-.sabor-cheddar-60g { background-image: url("https://ibb.co"); border-color: #ffd966; }
-.sabor-cheddar-120g { background-image: url("https://ibb.co"); border-color: #ffd966; }
-.sabor-ajo-60g { background-image: url("https://ibb.co"); border-color: #b4a7d6; }
-.sabor-ajo-120g { background-image: url("https://ibb.co"); border-color: #b4a7d6; }
-.sabor-picante-60g { background-image: url("https://ibb.co"); border-color: #f4b183; }
-.sabor-picante-120g { background-image: url("https://ibb.co"); border-color: #f4b183; }
+.sabor-natural-60g { background-image: url("natural-60g.jpg"); border-color: #a8d08d; }
+.sabor-natural-120g { background-image: url("natural-120g.jpg"); border-color: #a8d08d; }
+.sabor-cheddar-60g { background-image: url("cheddar-60g.jpg"); border-color: #ffd966; }
+.sabor-cheddar-120g { background-image: url("cheddar-120g.jpg"); border-color: #ffd966; }
+.sabor-ajo-60g { background-image: url("ajo-60g.jpg"); border-color: #b4a7d6; }
+.sabor-ajo-120g { background-image: url("ajo-120g.jpg"); border-color: #b4a7d6; }
+.sabor-picante-60g { background-image: url("picante-60g.jpg"); border-color: #f4b183; }
+.sabor-picante-120g { background-image: url("picante-120g.jpg"); border-color: #f4b183; }
 
 .tarjeta-producto h3 {
     margin: 0 0 5px 0;
