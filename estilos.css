@@ -1,0 +1,172 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f6f8;
+    color: #333;
+}
+.contenedor-principal {
+    max-width: 800px;
+    margin: 0 auto;
+}
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+.seccion-datos {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.grupo-campo {
+    margin-bottom: 15px;
+}
+.grupo-campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.grupo-campo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.tasa-bcv-box {
+    background-color: #eef2f7;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.tasa-bcv-box input {
+    width: 120px;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 6px;
+}
+.seccion-tamano {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.contenedor-sabores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+.tarjeta-producto {
+    border: 1px solid #e1e8ed;
+    padding: 20px 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tarjeta-producto::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.65); 
+    z-index: 1;
+}
+.tarjeta-producto * {
+    position: relative;
+    z-index: 2;
+}
+
+.sabor-natural-60g { background-image: url("natural-60g.jpg"); border-color: #a8d08d; }
+.sabor-natural-120g { background-image: url("natural-120g.jpg"); border-color: #a8d08d; }
+.sabor-cheddar-60g { background-image: url("cheddar-60g.jpg"); border-color: #ffd966; }
+.sabor-cheddar-120g { background-image: url("cheddar-120g.jpg"); border-color: #ffd966; }
+.sabor-ajo-60g { background-image: url("ajo-60g.jpg"); border-color: #b4a7d6; }
+.sabor-ajo-120g { background-image: url("ajo-120g.jpg"); border-color: #b4a7d6; }
+.sabor-picante-60g { background-image: url("picante-60g.jpg"); border-color: #f4b183; }
+.sabor-picante-120g { background-image: url("picante-120g.jpg"); border-color: #f4b183; }
+
+.tarjeta-producto h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.4em;
+    color: #111;
+    text-shadow: 1px 1px 2px white;
+    font-weight: bold;
+}
+.precio-producto {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    color: #d35400;
+    text-shadow: 1px 1px 1px white;
+}
+.campo-cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.95);
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.campo-cantidad label {
+    font-weight: bold;
+    font-size: 0.95em;
+}
+.campo-cantidad input {
+    width: 65px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+.barra-total {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    z-index: 100;
+}
+.monto-total {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+.monto-bs {
+    display: block;
+    font-size: 0.85em;
+    color: #7f8c8d;
+    font-weight: normal;
+}
+.boton-enviar {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}

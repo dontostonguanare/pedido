@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido - Don Tostón</title>
+    <!-- Conexión directa al archivo de diseño -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <h1>Pedido - Don Tostón</h1>
+
+        <form id="formulario-pedido">
+            
+            <div class="seccion-datos">
+                <h2>Datos de Entrega</h2>
+                <div class="tasa-bcv-box">
+                    <label for="tasa-bcv">Tasa Oficial BCV del día (Bs.):</label>
+                    <input type="number" id="tasa-bcv" step="0.01" value="45.00">
+                </div>
+                <div class="grupo-campo">
+                    <label for="nombre-cliente">Nombre Completo:</label>
+                    <input type="text" id="nombre-cliente" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="grupo-campo">
+                    <label for="direccion-cliente">Dirección de Envío:</label>
+                    <input type="text" id="direccion-cliente" required placeholder="Ej. Guanare, Edo. Portuguesa">
+                </div>
+            </div>
+            
+            <div class="seccion-tamano">
+                <h2>Presentación 60g ($0.75)</h2>
+                <div class="contenedor-sabores">
+                    <div class="tarjeta-producto sabor-natural-60g">
+                        <h3>Natural (60g)</h3>
+                        <div class="precio-producto">$0.75</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="60g-natural" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-cheddar-60g">
+                        <h3>Cheddar (60g)</h3>
+                        <div class="precio-producto">$0.75</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="60g-cheddar" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-ajo-60g">
+                        <h3>Ajo (60g)</h3>
+                        <div class="precio-producto">$0.75</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="60g-ajo" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-picante-60g">
+                        <h3>Picante (60g)</h3>
+                        <div class="precio-producto">$0.75</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="60g-picante" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccion-tamano">
+                <h2>Presentación 120g ($1.00)</h2>
+                <div class="contenedor-sabores">
+                    <div class="tarjeta-producto sabor-natural-120g">
+                        <h3>Natural (120g)</h3>
+                        <div class="precio-producto">$1.00</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="120g-natural" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-cheddar-120g">
+                        <h3>Cheddar (120g)</h3>
+                        <div class="precio-producto">$1.00</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="120g-cheddar" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-ajo-120g">
+                        <h3>Ajo (120g)</h3>
+                        <div class="precio-producto">$1.00</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="120g-ajo" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                    <div class="tarjeta-producto sabor-picante-120g">
+                        <h3>Picante (120g)</h3>
+                        <div class="precio-producto">$1.00</div>
+                        <div class="campo-cantidad"><label>Cantidad:</label><input type="number" id="120g-picante" min="0" value="0" class="input-cantidad"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="barra-total">
+                <div class="monto-total">
+                    Total: $<span id="total-usd">0.00</span>
+                    <span class="monto-bs">Equivalente: Bs. <span id="total-bs">0.00</span></span>
+                </div>
+                <button type="submit" class="boton-enviar">Enviar por WhatsApp</button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Conexión directa al archivo de lógica -->
+    <script src="calculos.js"></script>
+</body>
+</html>
