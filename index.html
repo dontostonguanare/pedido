@@ -9,21 +9,21 @@
 <body>
     <div class="contenedor-principal">
         <h1>Pedido - Don Tostón</h1>
-        <form id="formulario-pedido">
+        <div id="formulario-pedido">
             
             <div class="seccion-datos">
                 <h2>Datos de Entrega</h2>
                 <div class="tasa-bcv-box">
                     <label for="tasa-bcv">Tasa Oficial BCV del día (Bs.):</label>
-                    <input type="number" id="tasa-bcv" step="0.01" value="721.34">
+                    <input type="number" id="tasa-bcv" step="0.01" value="736.93">
                 </div>
                 <div class="grupo-campo">
                     <label for="nombre-cliente">Nombre Completo:</label>
-                    <input type="text" id="nombre-cliente" required placeholder="Ej. Juan Pérez">
+                    <input type="text" id="nombre-cliente" placeholder="Ej. Juan Pérez">
                 </div>
                 <div class="grupo-campo">
                     <label for="direccion-cliente">Dirección de Envío:</label>
-                    <input type="text" id="direccion-cliente" required placeholder="Ej. Guanare, Edo. Portuguesa">
+                    <input type="text" id="direccion-cliente" placeholder="Ej. Guanare, Edo. Portuguesa">
                 </div>
             </div>
             
@@ -84,20 +84,25 @@
                     Total: $<span id="total-usd">0.00</span>
                     <span class="monto-bs">Equivalente: Bs. <span id="total-bs">0.00</span></span>
                 </div>
-                <button type="submit" class="boton-enviar">Enviar por WhatsApp</button>
+                <!-- Cambiado type="submit" por type="button" con llamada directa onclick -->
+                <button type="button" onclick="procesarYEnviarWhatsApp()" class="boton-enviar">Enviar por WhatsApp</button>
             </div>
-        </form>
+        </div>
     </div>
     
     <script src="calculos.js"></script>
     <script>
-        document.getElementById('formulario-pedido').addEventListener('submit', function(event) {
-            event.preventDefault();
-
+        function procesarYEnviarWhatsApp() {
             const numeroTelefono = "584162755555";
             const nombre = document.getElementById('nombre-cliente').value.trim();
             const direccion = document.getElementById('direccion-cliente').value.trim();
             const tasaBCV = document.getElementById('tasa-bcv').value;
+
+            // Validación manual para evitar recarga de página
+            if (nombre === "" || direccion === "") {
+                alert("Por favor, introduce tu Nombre y Dirección de entrega.");
+                return;
+            }
 
             const productos = [
                 { nombre: "Natural (60g)", id: "60g-natural" },
@@ -134,10 +139,11 @@
             mensaje += `*🇻🇪 Total Bs.:* Bs. ${totalBS}\n\n`;
             mensaje += `_(Tasa BCV calculada: Bs. ${tasaBCV})_`;
 
-            const urlWhatsApp = `https://wa.me{584162755555}?text=${encodeURIComponent(mensaje)}`;
-            window.open(urlWhatsApp, '_blank');
-        });
+            const urlWhatsApp = `https://wa.me{numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Forzar redirección directa en lugar de una ventana bloqueable
+            window.location.href = urlWhatsApp;
+        }
     </script>
 </body>
-    </html>
-    
+</html>
