@@ -85,8 +85,59 @@
                     <span class="monto-bs">Equivalente: Bs. <span id="total-bs">0.00</span></span>
                 </div>
                 <button type="submit" class="boton-enviar">Enviar por WhatsApp</button>
+            </div>
         </form>
     </div>
+    
     <script src="calculos.js"></script>
+    <script>
+        document.getElementById('formulario-pedido').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const numeroTelefono = "584162755555";
+            const nombre = document.getElementById('nombre-cliente').value.trim();
+            const direccion = document.getElementById('direccion-cliente').value.trim();
+            const tasaBCV = document.getElementById('tasa-bcv').value;
+
+            const productos = [
+                { nombre: "Natural (60g)", id: "60g-natural" },
+                { nombre: "Cheddar (60g)", id: "60g-cheddar" },
+                { nombre: "Ajo (60g)", id: "60g-ajo" },
+                { nombre: "Picante (60g)", id: "60g-picante" },
+                { nombre: "Natural (120g)", id: "120g-natural" },
+                { nombre: "Cheddar (120g)", id: "120g-cheddar" },
+                { nombre: "Ajo (120g)", id: "120g-ajo" },
+                { nombre: "Picante (120g)", id: "120g-picante" }
+            ];
+
+            let listaProductos = "";
+            productos.forEach(prod => {
+                const cantidad = parseInt(document.getElementById(prod.id).value) || 0;
+                if (cantidad > 0) {
+                    listaProductos += `• ${prod.nombre} x${cantidad}\n`;
+                }
+            });
+
+            if (listaProductos === "") {
+                alert("Por favor, agrega al menos 1 producto a tu pedido.");
+                return;
+            }
+
+            const totalUSD = document.getElementById('total-usd').innerText;
+            const totalBS = document.getElementById('total-bs').innerText;
+
+            let mensaje = `*🔥 ¡NUEVO PEDIDO - DON TOSTÓN!* 🔥\n\n`;
+            mensaje += `*👤 Cliente:* ${nombre}\n`;
+            mensaje += `*📍 Dirección:* ${direccion}\n\n`;
+            mensaje += `*📦 Productos:* \n${listaProductos}\n`;
+            mensaje += `*💵 Total USD:* $${totalUSD}\n`;
+            mensaje += `*🇻🇪 Total Bs.:* Bs. ${totalBS}\n\n`;
+            mensaje += `_(Tasa BCV calculada: Bs. ${tasaBCV})_`;
+
+            const urlWhatsApp = `https://wa.me{numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
 </body>
-</html>
+    </html>
+    
