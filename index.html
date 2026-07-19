@@ -84,7 +84,6 @@
                     Total: $<span id="total-usd">0.00</span>
                     <span class="monto-bs">Equivalente: Bs. <span id="total-bs">0.00</span></span>
                 </div>
-        
                 <button type="button" onclick="procesarYEnviarWhatsApp()" class="boton-enviar">Enviar por WhatsApp</button>
             </div>
         </div>
@@ -98,7 +97,6 @@
             const direccion = document.getElementById('direccion-cliente').value.trim();
             const tasaBCV = document.getElementById('tasa-bcv').value;
 
-            // Validación manual para evitar recarga de página
             if (nombre === "" || direccion === "") {
                 alert("Por favor, introduce tu Nombre y Dirección de entrega.");
                 return;
@@ -139,11 +137,12 @@
             mensaje += `*🇻🇪 Total Bs.:* Bs. ${totalBS}\n\n`;
             mensaje += `_(Tasa BCV calculada: Bs. ${tasaBCV})_`;
 
+    
             const urlWhatsApp = `https://wa.me{numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
             
-            // Forzar redirección directa en lugar de una ventana bloqueable
             window.location.href = urlWhatsApp;
         }
     </script>
 </body>
-</html>
+                                                                                </html>
+                            
