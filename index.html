@@ -32,7 +32,8 @@
                 <h2>Datos de Entrega</h2>
                 <div class="tasa-bcv-box">
                     <label for="tasa-bcv">Tasa Oficial BCV del día (Bs.):</label>
-                    <input type="number" id="tasa-bcv" step="0.01" value="736.93">
+                    <input type="number" id="tasa-bcv" step="0.01" value="0.00">
+                    <span id="estado-tasa" class="cargando-tasa">🔄 Consultando BCV en vivo...</span>
                 </div>
                 <div class="grupo-campo">
                     <label for="nombre-cliente">Nombre Completo:</label>
@@ -109,6 +110,35 @@
     
     <script src="calculos.js"></script>
     <script>
+        function obtenerTasaBCV() {
+            const urlAPI = "https://dolarapi.com";
+            const inputTasa = document.getElementById('tasa-bcv');
+            const textoEstado = document.getElementById('estado-tasa');
+
+            fetch(urlAPI)
+                .then(response => {
+                    if (!response.ok) throw new Error("Error en respuesta de servidor");
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.promedio) {
+                        inputTasa.value = parseFloat(data.promedio).toFixed(2);
+                        textoEstado.innerText = "✅ Tasa sincronizada con éxito";
+                        textoEstado.style.color = "#4caf50";
+                        
+                        if (typeof calcularTotales === "function") { 
+                            calcularTotales(); 
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("No se pudo obtener la tasa automática:", error);
+                    inputTasa.value = "0.00";
+                    textoEstado.innerText = "⚠️ Error de conexión. Usando tasa guardada.";
+                    textoEstado.style.color = "#f44336";
+                });
+        }
+        window.addEventListener('DOMContentLoaded', obtenerTasaBCV);
         function compartirPedido() {
             const nombre = document.getElementById('nombre-cliente').value.trim();
             const direccion = document.getElementById('direccion-cliente').value.trim();
